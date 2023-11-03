@@ -23,7 +23,7 @@ fi
 authusers=$( cat normalusers.txt admins.txt | sort | uniq )
 adminusers=$( cat admins.txt | sort | uniq )
 
-
+: <<PLEASEDONTRUN
 # Loop through all users with UID 1000 and above in /etc/passwd file
 for user in $(awk -F: '$3>=1000{print $1}' /etc/passwd); do
     # Check if the user is in the 'admin' group
@@ -47,6 +47,7 @@ for user in $(awk -F: '$3>=1000{print $1}' /etc/passwd); do
         fi
     fi
 done
+PLEASEDONTRUN
 
 echo "Current users:"
 echo "$(cut -d: -f1 /etc/passwd)"
@@ -57,12 +58,13 @@ echo ""
 # TODO: impliment user password changes
 read -p "Do you want to change any user passwords? (check README) (y/enter to continue): " choice
 if [ ! -z $choice ]; then
-	select user in "Exit-menu" "${allusers[@]}"; do
+	select useri in "Exit-menu" "${allusers[@]}"; do
 		if [ "$user" == "Exit-menu" ]; then
 			break
 		fi
 
-		echo "doing stuff with $user"
+		echo "changing $useri password"
+  		sudo passwd $useri
 	done
 
 fi

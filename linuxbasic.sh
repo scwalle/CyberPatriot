@@ -24,7 +24,4 @@ find / -name "*.$ext" -type f -delete
 done
 
 
-apt-cache rdepends <package>
-
-#delete files with nonexistant owners
 find / -nogroup -nouser -delete

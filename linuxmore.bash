@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# test
 # Adds a pause statement
 pause(){
 	read -p "Press enter key to continue" dummyVarIWillNeverUse

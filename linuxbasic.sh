@@ -8,7 +8,7 @@ apt-get install ufw && ufw enable
 
 echo remove hacking programs
 # add more probably
-pkgstoremove=( hashcat apache2 john netcat john hydra aircrack-ng fcrackzip lcrack ophcrack pdfcrack pyrit rarcrack sipcrack logkeys zeitgeist nfs-common nginx inetutils-inetd tightvncserver snmp )
+pkgstoremove=( hashcat apache2 john netcat john hydra aircrack-ng fcrackzip lcrack ophcrack pdfcrack pyrit rarcrack sipcrack logkeys zeitgeist nfs-common nginx inetutils-inetd tightvncserver snmp fcrackzip )
 
 for package in $pkgstoremove; do
 sudo apt-get purge package
